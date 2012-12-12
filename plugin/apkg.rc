@@ -1,0 +1,13 @@
+Package:          transmission
+Version:          1.0
+Packager:         home
+Email:
+Homepage:         https://github.com/alexey85/dns325-transmission
+AddonShowName:    Transmission
+AddonIndexPage:   index.html
+AddonUsedPort:    9091
+InstDepend:
+InstConflict:             
+StartDepend:       
+StartConflict:
+Description:      This is a simple demonstration of APKG to warpped telnet daemon.

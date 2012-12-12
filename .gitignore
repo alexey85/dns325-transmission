@@ -11,3 +11,16 @@
 *.lai
 *.la
 *.a
+
+# files downloaded from dlink
+dns325_GPL
+ShareCenter Add-On SDK_v2.0_12192011
+NAS How-To Guide - ShareCenter Add-On SDK v1.0.docx
+
+# build dirs
+lib
+include
+bin
+share
+ssl
+plugin/apkg.xml
