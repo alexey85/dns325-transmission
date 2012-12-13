@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "qwer"
 
 path_src=$1
 path_des=$2

@@ -18,7 +18,7 @@ export WORKDIR_LIB="$WORKDIR/lib"
 if [ ! -d ${WORKDIR_LIB} ]; then mkdir ${WORKDIR_LIB} ; fi
 export WORKDIR_INC="$WORKDIR/include"
 if [ ! -d ${WORKDIR_INC} ]; then mkdir ${WORKDIR_INC} ; fi
-export WORKDIR_OUT="$WORKDIR/plugin"
+export WORKDIR_OUT="$WORKDIR/transmission"
 if [ ! -d ${WORKDIR_OUT} ]; then mkdir ${WORKDIR_OUT} ; fi
 
 # compile environment

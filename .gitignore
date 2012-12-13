@@ -23,11 +23,11 @@ include
 bin
 share
 ssl
-plugin/apkg.xml
+transmission/apkg.xml
 
 # downloaded files
 plugin-icons/logo.png
 
 # generated images
 plugin-icons/logo_with_shadow.png
-plugin/Transmission_*.png
+transmission/web/transmission_*.png
