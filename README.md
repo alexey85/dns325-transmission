@@ -1,4 +1,5 @@
 dns325-transmission
 ===================
 
-DLink NAS 325 transmission plugin
+D-Link NAS 325 transmission plugin
+
