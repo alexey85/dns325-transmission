@@ -19,7 +19,7 @@
     "idle-seeding-limit": 30,
     "idle-seeding-limit-enabled": false,
     "incomplete-dir": "/mnt/HD/HD_b2/incomplete",
-    "incomplete-dir-enabled": false,
+    "incomplete-dir-enabled": true,
     "lpd-enabled": false,
     "message-level": 2,
     "peer-congestion-algorithm": "",
