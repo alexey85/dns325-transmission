@@ -26,8 +26,8 @@ ssl
 transmission/apkg.xml
 
 # downloaded files
-plugin-icons/logo.png
+templates/icons/logo.png
 
 # generated images
-plugin-icons/logo_with_shadow.png
+templates/icons/logo_with_shadow.png
 transmission/web/transmission_*.png

@@ -1,20 +1,16 @@
 #!/bin/sh
+PLUGIN_NAME=transmission
+WORKDIR=$(dirname $0)
 
-#building environment
-WORKDIR=$(pwd)
-export WORKDIR
+TOOLCHAIN_DIR=${WORKDIR}/dns325_GPL
 
-export TOOLCHAIN_DIR=${WORKDIR}/dns325_GPL
-export MKAPKG_DIR="$WORKDIR/ShareCenter Add-On SDK_v2.0_12192011"
+MKAPKG_DIR=${WORKDIR}/"ShareCenter Add-On SDK_v2.0_12192011"
+MKAPKG="$MKAPKG_DIR/mkapkg"
 
-export WORKDIR_LIB="$WORKDIR/lib"
-if [ ! -d ${WORKDIR_LIB} ]; then mkdir ${WORKDIR_LIB} ; fi
-export WORKDIR_INC="$WORKDIR/include"
-if [ ! -d ${WORKDIR_INC} ]; then mkdir ${WORKDIR_INC} ; fi
-export WORKDIR_OUT="$WORKDIR/transmission"
-if [ ! -d ${WORKDIR_OUT} ]; then mkdir ${WORKDIR_OUT} ; fi
-
-export MKAPKG="$MKAPKG_DIR/mkapkg"
-chmod +x "$MKAPKG"
+WORKDIR_LIB="$WORKDIR/lib"
+WORKDIR_INC="$WORKDIR/include"
+WORKDIR_OUT="$WORKDIR/$PLUGIN_NAME"
+WORKDIR_TMPL="$WORKDIR/templates"
+if [ -x "$MKAPKG" ]; then chmod +x "$MKAPKG"; fi
 cd ${WORKDIR_OUT}
 "$MKAPKG" -m DNS-325
