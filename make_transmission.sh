@@ -23,14 +23,14 @@ if [ ! -d ${WORKDIR_OUT} ]; then mkdir ${WORKDIR_OUT} ; fi
 
 # compile environment
 CC=${CROSS_COMPILE}gcc
-export CC
 CXX=${CROSS_COMPILE}g++
-export CXX
 RANLIB=${CROSS_COMPILE}ranlib
-export RANLIB
 LD=${CROSS_COMPILE}ld
-export LD
 STRIP=${CROSS_COMPILE}strip
+export CC
+export CXX
+export RANLIB
+export LD
 export STRIP
 export LDFLAGS="-L$WORKDIR_LIB"
 
@@ -43,7 +43,8 @@ cd ${file} && \
 ./configure --host="$TARGET_HOST" --build="$BUILD_HOST" --prefix="$WORKDIR"  && \
 make clean && \
 make && \
-make install
+make install && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
 
 
 file=zlib-1.2.3 && \
@@ -55,7 +56,8 @@ cd ${file} && \
 ./configure --prefix="$WORKDIR"  && \
 make clean && \
 make && \
-make install
+make install && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
 
 
 file=openssl-0.9.7 && \
@@ -68,7 +70,8 @@ cd ${file} && \
 make clean && \
 make depend && \
 make && \
-make install
+make install && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
 
 
 file=curl-7.19.7 && \
@@ -81,7 +84,8 @@ cd ${file} && \
 --prefix="$WORKDIR" --without-random --disable-static --enable-shared && \
 make clean && \
 make && \
-make install
+make install && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
 
 
 file=libevent-2.0.21-stable && \
@@ -93,10 +97,11 @@ cd ${file}  && \
 ./configure --host="$TARGET_HOST" --build="$BUILD_HOST" --prefix="$WORKDIR" --enable-static --disable-shared  && \
 make clean && \
 make && \
-make install
+make install && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
 
 
-file=transmission-2.73 && \
+file=transmission-2.75 && \
 echo "building $file" && \
 cd ${TOOLCHAIN_DIR} && \
 if [ ! -f ${file}.tar.bz2 ]; then wget http://download.transmissionbt.com/files/${file}.tar.bz2 ; fi && \
@@ -112,6 +117,7 @@ LIBCURL_CFLAGS="-I$WORKDIR_INC" \
 --with-zlib="$WORKDIR" --enable-lightweight --prefix="$WORKDIR_OUT" --host="$TARGET_HOST" \
 --build="$BUILD_HOST" --disable-nls --enable-daemon --without-gtk && \
 make clean && \
-make v=1 && \
+make && \
 make install && \
-$($STRIP "$WORKDIR_OUT/bin/transmission-*")
+$STRIP "$WORKDIR_OUT"/bin/transmission-*  && \
+if [ $? -ne 0 ]; then echo"fail build $file" && exit; fi
